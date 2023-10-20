@@ -7,7 +7,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const dbUrl = "mongodb://127.0.0.1:27017/TodoList";
+// const dbUrl = "mongodb://127.0.0.1:27017/TodoList";
+const dbUrl =
+  "mongodb+srv://todolist:ny2wRq5ar4Q9uFM0@todolist.8hwobd9.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose.connect(dbUrl);
 
