@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start-prod": "node index.js",
+    "start-dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Fekadu",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
