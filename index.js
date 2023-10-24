@@ -1,5 +1,5 @@
 const express = require("express");
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 const cors = require("cors");
 const TodoModel = require("./Models/Todo");
 
@@ -7,11 +7,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const dbUrl = "mongodb://127.0.0.1:27017/TodoList";
-// const dbUrl =
-//   "mongodb+srv://todolist:ny2wRq5ar4Q9uFM0@todolist.8hwobd9.mongodb.net/?retryWrites=true&w=majority";
+// const dbUrl = "mongodb://127.0.0.1:27017/TodoList";
 
-mongoose.connect(dbUrl);
+// mongoose.connect(dbUrl);
+
+require("dotenv").config();
+
+const connectDB = require("./ConnectMongo");
+connectDB();
 
 app.get("/get", (_req, res) => {
   TodoModel.find()
@@ -47,7 +50,7 @@ app.delete("/delete/:id", (req, res) => {
     .catch((error) => res.json(error));
 });
 
-const port = process.env.PORT || 3001;
-app.listen(port, () =>
-  console.log(`Right now the Server is Running on port: ${port}`)
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () =>
+  console.log(`Right now the Server is Running on port: ${PORT}`)
 );
